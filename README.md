@@ -16,6 +16,7 @@ $ npm install server-summary
 const serverSummary = require('server-summary')
 const http          = require('http')
 
+process.env.NODE_ENV = 'development'
 http.createServer().listen(null, serverSummary)
 //
 // Port 61771
