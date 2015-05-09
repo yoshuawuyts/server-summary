@@ -19,10 +19,8 @@ const http = require('http')
 
 process.env.NODE_ENV = 'development'
 http.createServer().listen(null, serverSummary)
-//
-// Port 61771
-// Env  development
-//
+// {"port":63681,"type":"static"}
+// {"env":"test","type":"static"}
 ```
 
 ## Why?
