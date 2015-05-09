@@ -4,7 +4,8 @@
 [![Test coverage][coveralls-image]][coveralls-url]
 [![Downloads][downloads-image]][downloads-url]
 
-Log basic server information after an http server start.
+Log basic server information after an http server start as
+[ndjson](http://ndjson.org/).
 
 ## Installation
 ```bash
@@ -14,7 +15,7 @@ $ npm install server-summary
 ## Usage
 ```js
 const serverSummary = require('server-summary')
-const http          = require('http')
+const http = require('http')
 
 process.env.NODE_ENV = 'development'
 http.createServer().listen(null, serverSummary)

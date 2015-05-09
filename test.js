@@ -1,5 +1,5 @@
-const http    = require('http')
-const test    = require('tape')
+const http = require('http')
+const test = require('tape')
 const summary = require('./')
 
 test('should catch incorrect input', function(t) {
@@ -13,7 +13,7 @@ test('should log console output', function(t) {
   const x = http.createServer()
   x.listen(null, function() {
     summary.call(this)
-    t.ok(true)
+    t.pass('server called')
     this.close()
   })
 })
