@@ -4,8 +4,8 @@
   "description": "Log basic server information after an http server start.",
   "main": "index.js",
   "scripts": {
-    "test": "standard && NODE_ENV=test node test",
-    "test-cov": "NODE_ENV=test istanbul cover test.js",
+    "test": "standard && NODE_ENV=test node test | garnish",
+    "test-cov": "NODE_ENV=test istanbul cover test.js | garnish",
     "lint": "eslint ."
   },
   "repository": "yoshuawuyts/server-summary",
@@ -21,6 +21,7 @@
   "devDependencies": {
     "eslint": "^0.10.2",
     "faucet": "0.0.1",
+    "garnish": "^2.2.2",
     "istanbul": "^0.3.5",
     "standard": "^5.0.2",
     "tap-bail": "0.0.0",

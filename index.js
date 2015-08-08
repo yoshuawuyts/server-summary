@@ -15,8 +15,8 @@ function summary (server) {
     const serialize = ndjson.serialize()
     serialize.pipe(process.stdout)
 
-    serialize.write({port: port, type: 'static'})
-    serialize.write({env: process.env.NODE_ENV, type: 'static'})
+    serialize.write({name: 'port', message: port, type: 'static'})
+    serialize.write({name: 'env', message: process.env.NODE_ENV, type: 'static'})
     serialize.end()
   }
 }
