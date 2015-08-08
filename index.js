@@ -5,8 +5,8 @@ const http = require('http')
 module.exports = summary
 
 // log the server port and env
-// null -> null
-function summary(server) {
+// null -> null -> null
+function summary (server) {
   assert.ok(server instanceof http.Server, /expected instance of server/)
   return function () {
     const address = server.address()
