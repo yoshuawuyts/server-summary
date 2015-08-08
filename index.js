@@ -1,15 +1,22 @@
 const assert = require('assert')
+const ndjson = require('ndjson')
+const http = require('http')
 
 module.exports = summary
 
 // log the server port and env
 // null -> null
-function summary() {
-  assert.equal(typeof this.address, 'function')
+function summary(server) {
+  assert.ok(server instanceof http.Server, /expected instance of server/)
+  return function () {
+    const address = server.address()
+    const port = address.port
 
-  const address = this.address()
-  const port = address.port
+    const serialize = ndjson.serialize()
+    serialize.pipe(process.stdout)
 
-  console.log(JSON.stringify({port: port, type: 'static'}))
-  console.log(JSON.stringify({env: process.env.NODE_ENV, type: 'static'}))
+    serialize.write({port: port, type: 'static'})
+    serialize.write({env: process.env.NODE_ENV, type: 'static'})
+    serialize.end()
+  }
 }

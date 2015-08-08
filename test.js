@@ -5,15 +5,16 @@ const summary = require('./')
 test('should catch incorrect input', function(t) {
   t.plan(2)
   t.equals(typeof summary, 'function')
-  t.throws(summary, /function/)
+  t.throws(summary, /server/)
 })
 
 test('should log console output', function(t) {
   t.plan(1)
-  const x = http.createServer()
-  x.listen(null, function() {
-    summary.call(this)
+  const server = http.createServer()
+  server.listen(null, function () {
+    const sum = summary(server)
+    sum()
     t.pass('server called')
-    this.close()
+    server.close()
   })
 })

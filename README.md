@@ -18,9 +18,11 @@ const serverSummary = require('server-summary')
 const http = require('http')
 
 process.env.NODE_ENV = 'development'
-http.createServer().listen(1337, serverSummary)
-// {"port":1337,"type":"static"}
-// {"env":"development","type":"static"}
+
+const server = http.createServer()
+server.listen(1337, serverSummary(server))
+// => {"port":1337,"type":"static"}
+// => {"env":"development","type":"static"}
 ```
 
 ## Why?

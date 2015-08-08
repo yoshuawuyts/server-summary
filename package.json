@@ -16,7 +16,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "chalk": "^0.5.1"
+    "ndjson": "^1.4.1"
   },
   "devDependencies": {
     "eslint": "^0.10.2",
