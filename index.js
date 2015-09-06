@@ -11,12 +11,14 @@ function summary (server) {
   return function () {
     const address = server.address()
     const port = address.port
+    const url = 'http://localhost:' + port
 
     const serialize = ndjson.serialize()
     serialize.pipe(process.stdout)
 
-    serialize.write({name: 'port', message: port, type: 'static'})
-    serialize.write({name: 'env', message: process.env.NODE_ENV, type: 'static'})
+    serialize.write({name: 'url', url: url, type: 'connect'})
+    serialize.write({name: 'port', message: port})
+    serialize.write({name: 'env', message: process.env.NODE_ENV})
     serialize.end()
   }
 }
