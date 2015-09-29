@@ -7,6 +7,13 @@
 Log basic server information after an http server start as
 [ndjson](http://ndjson.org/).
 
+## Features
+- log local url (useful for tools like
+  [opnr](https://github.com/mattdesl/opnr))
+- log port
+- log environment
+- log process id (useful for `dtrace(1)`, `kill(1)`)
+
 ## Installation
 ```bash
 $ npm install server-summary
@@ -21,8 +28,6 @@ process.env.NODE_ENV = 'development'
 
 const server = http.createServer()
 server.listen(1337, serverSummary(server))
-// => {"port":1337,"type":"static"}
-// => {"env":"development","type":"static"}
 ```
 
 ## Why?
