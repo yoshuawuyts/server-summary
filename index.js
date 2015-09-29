@@ -20,6 +20,7 @@ function summary (server) {
     serialize.write({name: 'url', url: url, type: 'connect'})
     serialize.write({name: 'port', message: port})
     serialize.write({name: 'env', message: env})
+    serialize.write({name: 'pid', message: process.pid})
     serialize.end()
   }
 }
