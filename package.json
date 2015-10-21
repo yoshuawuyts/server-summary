@@ -16,7 +16,8 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "ndjson": "^1.4.1"
+    "ndjson": "^1.4.1",
+    "pump": "^1.0.0"
   },
   "devDependencies": {
     "eslint": "^0.10.2",
