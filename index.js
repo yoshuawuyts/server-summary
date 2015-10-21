@@ -15,12 +15,13 @@ function summary (server) {
     const env = process.env.NODE_ENV || 'undefined'
 
     const serialize = ndjson.serialize()
-    serialize.pipe(process.stdout)
 
     serialize.write({name: 'url', url: url, type: 'connect'})
     serialize.write({name: 'port', message: port})
     serialize.write({name: 'env', message: env})
     serialize.write({name: 'pid', message: process.pid})
     serialize.end()
+
+    return serialize
   }
 }

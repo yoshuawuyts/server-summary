@@ -13,7 +13,7 @@ test('should log console output', function (t) {
   const server = http.createServer()
   server.listen(null, function () {
     const sum = summary(server)
-    sum()
+    sum().pipe(process.stdout)
     t.pass('server called')
     server.close()
   })
