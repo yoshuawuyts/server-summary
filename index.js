@@ -21,9 +21,13 @@ function summary (server, ws) {
     pump(serialize, ws)
 
     serialize.write({name: 'url', url: url, type: 'connect'})
-    serialize.write({name: 'port', message: port})
-    serialize.write({name: 'env', message: env})
-    serialize.write({name: 'pid', message: process.pid})
-    serialize.end()
+    serialize.end({
+      name: 'server',
+      message: {
+        port: port,
+        env: env,
+        pid: process.pid
+      }
+    })
   }
 }
