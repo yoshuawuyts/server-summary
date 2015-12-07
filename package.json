@@ -1,6 +1,6 @@
 {
   "name": "server-summary",
-  "version": "4.0.1",
+  "version": "5.0.0",
   "description": "Log basic server information after an http server start.",
   "main": "index.js",
   "scripts": {
