@@ -27,7 +27,7 @@ const http = require('http')
 process.env.NODE_ENV = 'development'
 
 const server = http.createServer()
-server.listen(1337, serverSummary(server).pipe(process.stdout))
+server.listen(1337, serverSummary(server, process.stdout))
 ```
 
 ## Why?
