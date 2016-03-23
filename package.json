@@ -1,6 +1,6 @@
 {
   "name": "server-summary",
-  "version": "6.0.0",
+  "version": "6.0.1",
   "description": "Log basic server information after an http server start.",
   "main": "index.js",
   "scripts": {
@@ -15,8 +15,7 @@
     "callback"
   ],
   "license": "MIT",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "garnish": "^5.0.1",
     "istanbul": "^0.3.5",
