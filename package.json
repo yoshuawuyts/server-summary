@@ -16,16 +16,11 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "ndjson": "^1.4.1",
-    "pump": "^1.0.0"
   },
   "devDependencies": {
-    "eslint": "^0.10.2",
-    "faucet": "0.0.1",
     "garnish": "^5.0.1",
     "istanbul": "^0.3.5",
     "standard": "^6.0.0",
-    "tap-bail": "0.0.0",
     "tape": "^3.0.3"
   },
   "files": [
