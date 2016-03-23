@@ -14,25 +14,28 @@ Log basic server information after an http server start as
 - log environment
 - log process id (useful for `dtrace(1)`, `kill(1)`)
 
-## Installation
-```bash
-$ npm install server-summary
-```
-
 ## Usage
 ```js
-const serverSummary = require('server-summary')
+const summary = require('server-summary')
 const http = require('http')
+const bole = require('bole')
+
+const log = bole('my-server')
 
 process.env.NODE_ENV = 'development'
 
 const server = http.createServer()
-server.listen(1337, serverSummary(server, process.stdout))
+server.listen(1337, summary(server, bole.info))
 ```
 
 ## Why?
 Knowing on what port your server is listening is nice to have. This module
 logs some basic information after your server has started to `stdout`.
+
+## Installation
+```sh
+$ npm install server-summary
+```
 
 ## License
 [MIT](https://tldrlegal.com/license/mit-license)

@@ -1,15 +1,13 @@
 const assert = require('assert')
-const ndjson = require('ndjson')
-const pump = require('pump')
 const http = require('http')
 
 module.exports = summary
 
 // log the server port and env
-// (obj, wstream) -> null
-function summary (server, ws) {
+// (obj, fn) -> null
+function summary (server, write) {
   assert.ok(server instanceof http.Server, /expected instance of server/)
-  ws = ws || process.stdout
+  write = write || defaultWrite
 
   return function () {
     const address = server.address()
@@ -17,11 +15,15 @@ function summary (server, ws) {
     const url = 'http://localhost:' + port
     const env = process.env.NODE_ENV || 'undefined'
 
-    const serialize = ndjson.serialize()
-    pump(serialize, ws)
+    write({
+      level: 'info',
+      name: 'url',
+      url: url,
+      type: 'connect'
+    })
 
-    serialize.write({name: 'url', url: url, type: 'connect'})
-    serialize.end({
+    write({
+      level: 'info',
       name: 'server',
       message: {
         port: port,
@@ -30,4 +32,9 @@ function summary (server, ws) {
       }
     })
   }
+}
+
+function defaultWrite (obj) {
+  const msg = JSON.stringify(obj)
+  process.stdout.write(msg + '\n')
 }

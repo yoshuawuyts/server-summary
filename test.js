@@ -9,10 +9,12 @@ test('should catch incorrect input', function (t) {
 })
 
 test('should log console output', function (t) {
-  t.plan(1)
+  t.plan(3)
   const server = http.createServer()
   server.listen(null, function () {
-    const sum = summary(server, process.stdout)
+    const sum = summary(server, function (msg) {
+      t.equal(typeof msg, 'object', 'message is an object')
+    })
     sum()
     t.pass('server called')
     server.close()
