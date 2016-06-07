@@ -25,7 +25,7 @@ const log = bole('my-server')
 process.env.NODE_ENV = 'development'
 
 const server = http.createServer()
-server.listen(1337, summary(server, bole.info))
+server.listen(1337, summary(server, log.info))
 ```
 
 ## Why?
