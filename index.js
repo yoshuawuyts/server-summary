@@ -25,6 +25,6 @@ function summary (server, write) {
 }
 
 function defaultWrite (obj) {
-  const msg = JSON.stringify({level: 'info', name: 'server', message: obj})
+  const msg = JSON.stringify(obj)
   process.stdout.write(msg + '\n')
 }
