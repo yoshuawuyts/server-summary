@@ -16,25 +16,15 @@ function summary (server, write) {
     const env = process.env.NODE_ENV || 'undefined'
 
     write({
-      level: 'info',
-      name: 'url',
-      url: url,
-      type: 'connect'
-    })
-
-    write({
-      level: 'info',
-      name: 'server',
-      message: {
-        port: port,
-        env: env,
-        pid: process.pid
-      }
+      port: port,
+      env: env,
+      pid: process.pid,
+      url: url
     })
   }
 }
 
 function defaultWrite (obj) {
-  const msg = JSON.stringify(obj)
+  const msg = JSON.stringify({level: 'info', name: 'server', message: obj})
   process.stdout.write(msg + '\n')
 }
