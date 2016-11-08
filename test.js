@@ -9,7 +9,7 @@ test('should catch incorrect input', function (t) {
 })
 
 test('should log console output', function (t) {
-  t.plan(3)
+  t.plan(2)
   const server = http.createServer()
   server.listen(null, function () {
     const sum = summary(server, function (msg) {
