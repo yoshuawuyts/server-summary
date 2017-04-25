@@ -11,7 +11,7 @@ test('should catch incorrect input', function (t) {
 test('should log console output', function (t) {
   t.plan(2)
   const server = http.createServer()
-  server.listen(null, function () {
+  server.listen(0, function () {
     const sum = summary(server, function (msg) {
       t.equal(typeof msg, 'object', 'message is an object')
     })
