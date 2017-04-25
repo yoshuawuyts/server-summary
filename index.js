@@ -1,26 +1,29 @@
 const assert = require('assert')
 const http = require('http')
+const internalIp = require('internal-ip')
 
 module.exports = summary
 
 // log the server port and env
 // (obj, fn) -> null
-function summary (server, write) {
+function summary (server, write, additional) {
   assert.ok(server instanceof http.Server, /expected instance of server/)
   write = write || defaultWrite
+  additional = additional || {}
 
   return function () {
     const address = server.address()
+    const host = address.address === '::' ? internalIp() : 'localhost'
     const port = address.port
-    const url = 'http://localhost:' + port
+    const url = 'http://' + host + ':' + port
     const env = process.env.NODE_ENV || 'undefined'
 
-    write({
+    write(Object.assign(additional, {
       port: port,
       env: env,
       pid: process.pid,
       url: url
-    })
+    }))
   }
 }
 

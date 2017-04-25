@@ -15,7 +15,9 @@
     "callback"
   ],
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "internal-ip": "~1.2.0"
+  },
   "devDependencies": {
     "garnish": "^5.0.1",
     "istanbul": "^0.3.5",
